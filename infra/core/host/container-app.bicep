@@ -70,7 +70,7 @@ param serviceType string = ''
 @description('The target port for the container')
 param targetPort int = 80
 
-resource userIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = if (!empty(identityName)) {
+resource userIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-07-31-preview' existing = if (!empty(identityName)) {
   name: identityName
 }
 
@@ -88,7 +88,7 @@ module containerRegistryAccess '../security/registry-access.bicep' = if (usePriv
   }
 }
 
-resource app 'Microsoft.App/containerApps@2023-04-01-preview' = {
+resource app 'Microsoft.App/containerApps@2023-08-01-preview' = {
   name: name
   location: location
   tags: tags
@@ -149,7 +149,7 @@ resource app 'Microsoft.App/containerApps@2023-04-01-preview' = {
   }
 }
 
-resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2023-04-01-preview' existing = {
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2023-08-01-preview' existing = {
   name: containerAppsEnvironmentName
 }
 

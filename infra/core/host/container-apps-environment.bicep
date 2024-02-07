@@ -11,7 +11,7 @@ param daprEnabled bool = false
 @description('Name of the Log Analytics workspace')
 param logAnalyticsWorkspaceName string
 
-resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2023-04-01-preview' = {
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2023-08-01-preview' = {
   name: name
   location: location
   tags: tags
@@ -27,7 +27,7 @@ resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2023-04-01-
   }
 }
 
-resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' existing = {
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' existing = {
   name: logAnalyticsWorkspaceName
 }
 

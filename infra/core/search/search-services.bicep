@@ -35,7 +35,7 @@ param replicaCount int = 1
 ])
 param semanticSearch string = 'disabled'
 
-resource search 'Microsoft.Search/searchServices@2021-04-01-preview' = {
+resource search 'Microsoft.Search/searchServices@2023-11-01' = {
   name: name
   location: location
   tags: tags
@@ -45,7 +45,6 @@ resource search 'Microsoft.Search/searchServices@2021-04-01-preview' = {
   properties: {
     authOptions: authOptions
     disableLocalAuth: disableLocalAuth
-    disabledDataExfiltrationOptions: disabledDataExfiltrationOptions
     encryptionWithCmk: encryptionWithCmk
     hostingMode: hostingMode
     networkRuleSet: networkRuleSet

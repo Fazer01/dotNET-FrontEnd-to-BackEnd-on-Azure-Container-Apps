@@ -13,7 +13,7 @@ param deliveryPolicyRules array = []
 @minLength(1)
 param originUrl string
 
-resource endpoint 'Microsoft.Cdn/profiles/endpoints@2022-05-01-preview' = {
+resource endpoint 'Microsoft.Cdn/profiles/endpoints@2023-07-01-preview' = {
   parent: cdnProfile
   name: name
   location: location
