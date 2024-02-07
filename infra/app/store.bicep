@@ -27,7 +27,7 @@ module app '../core/host/container-app-upsert.bicep' = {
     containerAppsEnvironmentName: containerAppsEnvironmentName
     containerRegistryName: containerRegistryName
     containerMaxReplicas: 1
-    containerMinReplicas: 1
+    containerMinReplicas: 0
     env: [
       {
         name: 'ASPNETCORE_ENVIRONMENT'
@@ -48,9 +48,9 @@ module app '../core/host/container-app-upsert.bicep' = {
       {
         name: 'ProductsApi'
         value: 'http://${productsServiceName}'
-      }
+      }     
     ]
-    targetPort: 80
+    targetPort: 8080
   }
 }
 

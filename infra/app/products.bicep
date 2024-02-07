@@ -26,6 +26,8 @@ module app '../core/host/container-app-upsert.bicep' = {
     containerRegistryName: containerRegistryName
     external: false
     ingressEnabled: true
+    containerMaxReplicas: 1
+    containerMinReplicas: 0
     env: [
       {
         name: 'ASPNETCORE_ENVIRONMENT'
@@ -38,9 +40,9 @@ module app '../core/host/container-app-upsert.bicep' = {
       {
         name: 'ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS'
         value: 'true'
-      }
+      }     
     ]
-    targetPort: 80
+    targetPort: 8080
   }
 }
 

@@ -18,11 +18,11 @@ param inventoryAppExists bool = false
 @description('Specifies if the products app exists')
 param productsAppExists bool = false
 
-var tags = { 'azd-env-name': environmentName }
+var tags = { 'azd-env-name': environmentName, ManagedBy: 'Team Risky Business' }
 var abbrs = loadJsonContent('./abbreviations.json')
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+resource resourceGroup 'Microsoft.Resources/resourceGroups@2023-07-01' = {
   name: environmentName
   location: location
   tags: tags
@@ -48,7 +48,7 @@ module monitoring 'core/monitor/monitoring.bicep' = {
   params: {
     location: location
     tags: tags
-    logAnalyticsName: '${abbrs.operationalInsightsWorkspaces}${resourceToken}'
+    logAnalyticsName: 'ws-smxsle-development-${abbrs.operationalInsightsWorkspaces}${resourceToken}'
     applicationInsightsName: '${abbrs.insightsComponents}${resourceToken}'
     applicationInsightsDashboardName: '${abbrs.portalDashboards}${resourceToken}'
   }
